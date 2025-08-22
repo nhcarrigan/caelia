@@ -37,4 +37,6 @@ export const alexConfig: OptionsObject = {
     "stepbrother-stepsister",
     "stepbrothers-stepsisters",
   ],
+  // This restricts profanity triggers to only the most severe.
+  profanitySureness: 2,
 };
