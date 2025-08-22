@@ -37,9 +37,9 @@ export const processMessage = async(message: Message): Promise<void> => {
     const responses = matches.map((match) => {
       return `- You used the word \`${match.actual ?? "unknown word"}\`. This may not be inclusive language, because: ${match.reason.length > 0
         ? match.reason
-        : "I said so."}${match.note === null
+        : "I said so."}${match.note === null || match.note === "" || match.note === "undefined"
         ? ""
-        : `-- ${match.note}`}`;
+        : ` -- ${match.note}`}`;
     });
 
     await message.reply({ components: [
