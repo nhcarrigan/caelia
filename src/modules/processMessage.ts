@@ -39,7 +39,8 @@ export const processMessage = async(message: Message): Promise<void> => {
         ? match.reason
         : "I said so."}${[ null, "", undefined, "undefined", "null" ].includes(match.note)
         ? ""
-        : ` -- ${match.note}`}`;
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion -- Fuck off
+        : ` -- ${match.note!}`}`;
     });
 
     await message.reply({ components: [

@@ -9,6 +9,7 @@ import {
   GatewayIntentBits,
   Events,
 } from "discord.js";
+import { processInteraction } from "./modules/processInteraction.js";
 import { processMessage } from "./modules/processMessage.js";
 import { instantiateServer } from "./server/serve.js";
 import { logger } from "./utils/logger.js";
@@ -27,6 +28,13 @@ caelia.once(Events.ClientReady, () => {
 
 caelia.on(Events.MessageCreate, (message) => {
   void processMessage(message);
+});
+
+caelia.on(Events.InteractionCreate, (interaction) => {
+  if (!interaction.isChatInputCommand()) {
+    return;
+  }
+  void processInteraction(interaction);
 });
 
 await caelia.login(process.env.BOT_TOKEN);
