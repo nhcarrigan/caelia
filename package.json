@@ -1,0 +1,31 @@
+{
+  "name": "caelia",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --max-warnings 0",
+    "start": "op run --env-file=prod.env -- node prod/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.0",
+  "devDependencies": {
+    "@nhcarrigan/eslint-config": "5.2.0",
+    "@nhcarrigan/typescript-config": "4.0.0",
+    "@types/node": "24.3.0",
+    "eslint": "9.33.0",
+    "typescript": "5.9.2"
+  },
+  "dependencies": {
+    "@nhcarrigan/logger": "1.0.0",
+    "alex": "11.0.1",
+    "discord.js": "14.22.1",
+    "extra-markdown-text": "0.1.6",
+    "fastify": "5.5.0"
+  }
+}
