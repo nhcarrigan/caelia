@@ -19,7 +19,7 @@ const html = `<!DOCTYPE html>
   <body>
     <main>
     <h1>Caelia</h1>
-    <img src="https://cdn.nhcarrigan.com/new-avatars/caelia.png" width="250" alt="Caelia" />
+    <img src="https://cdn.nhcarrigan.com/new-avatars/caelia-full.png" width="250" alt="Caelia" />
     <section>
       <p>Discord bot that reminds you to use inclusive language.</p>
       <a href="https://discord.com/oauth2/authorize?client_id=1408530011572535346" class="social-button discord-button" style="display: inline-block; background-color: #5865F2; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin: 5px;">
