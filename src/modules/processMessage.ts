@@ -18,10 +18,7 @@ import { logger } from "../utils/logger.js";
 export const processMessage = async(message: Message): Promise<void> => {
   try {
     const { content, author, system } = message;
-    if (author.bot || system) {
-      return;
-    }
-    if (content.length <= 0) {
+    if (author.bot || system || content.length <= 0) {
       return;
     }
     const noCodeBlocks = replaceCodeBlocks(content, () => {
@@ -58,7 +55,9 @@ export const processMessage = async(message: Message): Promise<void> => {
         type: 1,
       },
     ],
-    flags: [ MessageFlags.IsComponentsV2 ] });
+    flags: [ MessageFlags.IsComponentsV2 ] }).catch(() => {
+      return null;
+    });
   } catch (error) {
     if (error instanceof Error) {
       await logger.error("process message module", error);
