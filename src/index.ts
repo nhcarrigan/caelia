@@ -4,6 +4,7 @@
  * @author Naomi Carrigan
  */
 
+import { DiscordAnalytics } from "@nhcarrigan/discord-analytics";
 import {
   Client,
   GatewayIntentBits,
@@ -22,8 +23,11 @@ const caelia = new Client({
   ],
 });
 
+const analytics = new DiscordAnalytics(caelia, logger);
+
 caelia.once(Events.ClientReady, () => {
   void logger.log("debug", `Logged in as ${caelia.user?.username ?? "unknown user"}.`);
+  analytics.startCron();
 });
 
 caelia.on(Events.MessageCreate, (message) => {
@@ -31,6 +35,7 @@ caelia.on(Events.MessageCreate, (message) => {
 });
 
 caelia.on(Events.InteractionCreate, (interaction) => {
+  void analytics.logGatewayEvent(Events.InteractionCreate, { ...interaction });
   if (!interaction.isChatInputCommand()) {
     return;
   }
