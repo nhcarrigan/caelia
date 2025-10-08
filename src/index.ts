@@ -11,7 +11,7 @@ import {
   Events,
 } from "discord.js";
 import { processInteraction } from "./modules/processInteraction.js";
-import { processMessage } from "./modules/processMessage.js";
+import { processMessage } from "./server/processMessage.js";
 import { instantiateServer } from "./server/serve.js";
 import { logger } from "./utils/logger.js";
 
