@@ -10,6 +10,7 @@ import {
   GatewayIntentBits,
   Events,
 } from "discord.js";
+import { processButton } from "./modules/processButton.js";
 import { processInteraction } from "./modules/processInteraction.js";
 import { processMessage } from "./server/processMessage.js";
 import { instantiateServer } from "./server/serve.js";
@@ -36,10 +37,12 @@ caelia.on(Events.MessageCreate, (message) => {
 
 caelia.on(Events.InteractionCreate, (interaction) => {
   void analytics.logGatewayEvent(Events.InteractionCreate, { ...interaction });
-  if (!interaction.isChatInputCommand()) {
-    return;
+  if (interaction.isChatInputCommand()) {
+    void processInteraction(interaction);
   }
-  void processInteraction(interaction);
+  if (interaction.isButton()) {
+    void processButton(interaction);
+  }
 });
 
 await caelia.login(process.env.BOT_TOKEN);

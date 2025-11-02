@@ -63,6 +63,14 @@ export const processMessage = async(message: Message): Promise<void> => {
           {
             components: [
               {
+                // eslint-disable-next-line @typescript-eslint/naming-convention -- Discord API
+                custom_id: author.id,
+                disabled:  false,
+                label:     "Okie Dokie!",
+                style:     3,
+                type:      2,
+              },
+              {
                 label: "Is this inaccurate? Let us know!",
                 style: 5,
                 type:  2,
