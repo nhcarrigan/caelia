@@ -24,12 +24,11 @@ export const processButton = async(
   interaction: ButtonInteraction,
 ): Promise<void> => {
   try {
-    await interaction.deferReply();
+    await interaction.deferReply({ ephemeral: true });
     const { customId, user, message } = interaction;
     if (customId !== user.id) {
-      await interaction.reply({
-        content:   "You cannot acknowledge someone else's reminder.",
-        ephemeral: true,
+      await interaction.editReply({
+        content: "You cannot acknowledge someone else's reminder.",
       });
     }
     await message.delete();
