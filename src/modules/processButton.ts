@@ -30,6 +30,7 @@ export const processButton = async(
       await interaction.editReply({
         content: "You cannot acknowledge someone else's reminder.",
       });
+      return;
     }
     await message.delete();
     await interaction.editReply({
