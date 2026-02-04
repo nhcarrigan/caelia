@@ -19,7 +19,7 @@
     "@nhcarrigan/typescript-config": "4.0.0",
     "@types/node": "24.3.0",
     "eslint": "9.33.0",
-    "typescript": "5.9.2"
+    "typescript": "5.9.3"
   },
   "dependencies": {
     "@nhcarrigan/discord-analytics": "0.0.6",
