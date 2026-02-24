@@ -25,7 +25,7 @@
     "@nhcarrigan/discord-analytics": "0.0.6",
     "@nhcarrigan/logger": "1.1.1",
     "alex": "11.0.1",
-    "discord.js": "14.22.1",
+    "discord.js": "14.25.1",
     "extra-markdown-text": "0.1.6",
     "fastify": "5.5.0"
   }
